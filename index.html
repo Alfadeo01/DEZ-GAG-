@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DEZ'GAG - Toko Top Up</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #222;
+    }
+    .product {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .product h2 {
+      margin: 0;
+    }
+    .product button {
+      background-color: #25d366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .product button:hover {
+      background-color: #1ebe5d;
+    }
+  </style>
+</head>
+<body>
+  <h1>DEZ'GAG Store</h1>  <div class="product">
+    <h2>15T - Rp 1.000</h2>
+    <button onclick="bayar('15T', 1000)">Beli Sekarang</button>
+  </div>  <div class="product">
+    <h2>28T - Rp 2.000</h2>
+    <button onclick="bayar('28T', 2000)">Beli Sekarang</button>
+  </div>  <div class="product">
+    <h2>55T - Rp 5.000</h2>
+    <button onclick="bayar('55T', 5000)">Beli Sekarang</button>
+  </div>  <div class="product">
+    <h2>80T - Rp 7.000</h2>
+    <button onclick="bayar('80T', 7000)">Beli Sekarang</button>
+  </div>  <div class="product">
+    <h2>744T - Rp 10.000</h2>
+    <button onclick="bayar('744T', 10000)">Beli Sekarang</button>
+  </div>  <script>
+    function bayar(produk, harga) {
+      // Simulasi: arahkan ke link pembayaran Tripay (dummy link)
+      // Setelah transaksi berhasil, Tripay bisa redirect ke WhatsApp kamu
+
+      const linkPembayaran = `https://tripay.co.id/checkout/dummy-${produk}`;
+      const nomorWa = '6285397626525';
+      const pesan = `Halo, saya sudah bayar untuk produk ${produk} seharga Rp${harga.toLocaleString()}`;
+      const redirectWa = `https://wa.me/${nomorWa}?text=${encodeURIComponent(pesan)}`;
+
+      alert("Kamu akan diarahkan ke halaman pembayaran Tripay.");
+      // Simulasi pembayaran Tripay lalu redirect ke WA
+      setTimeout(() => {
+        window.open(linkPembayaran, '_blank'); // halaman pembayaran Tripay
+        setTimeout(() => {
+          window.location.href = redirectWa;   // redirect ke WhatsApp setelah itu
+        }, 3000); // Delay redirect ke WA
+      }, 1000);
+    }
+  </script></body>
+</html>
